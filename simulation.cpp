@@ -86,7 +86,7 @@ int main(int argc, char **argv)
             }
             t += dt;
 
-            if (naphthalene.get_uniform_distibuted_variable() <= collisionProbability)
+            if (naphthalene.get_uniform_distributed_variable() <= collisionProbability)
             {   
                 
                 //generate several possible collision partners with different velocities
@@ -107,7 +107,7 @@ int main(int argc, char **argv)
                     norm += relvelocities[i];
                 }
                 //choose collision partner: particle with higher relative velocity have higher collsion probability
-                randomNumber = naphthalene.get_uniform_distibuted_variable()*norm;
+                randomNumber = naphthalene.get_uniform_distributed_variable()*norm;
                 norm = 0;
                 for (i=0; i<numPartners; ++i){
                     norm += relvelocities[i];
@@ -115,7 +115,7 @@ int main(int argc, char **argv)
                         break;
                     }
                 }
-                naphthalene.set_velocity_from_hard_shpere_collision_with_buffer_gas(vbArray[i], gasHe.mass);
+                naphthalene.set_velocity_from_hard_sphere_collision_with_buffer_gas(vbArray[i], gasHe.mass);
                 gasHe.update_coord(naphthalene.coord);
                      
                 
