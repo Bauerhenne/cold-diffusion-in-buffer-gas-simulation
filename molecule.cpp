@@ -51,7 +51,7 @@ void Molecule::init_coordinates_velocity(const double temperature, double radius
 
     v = sqrt(v);
     // determine direction of v, angles now in Rad
-    //theta only between 0° and 90°
+    //theta only between 0 Deg and 90 Deg
     theta = inverse_cos_square_dist(uniformDistribution(generator));
     phi = 2 * M_PI * uniformDistribution(generator);
 
@@ -59,7 +59,7 @@ void Molecule::init_coordinates_velocity(const double temperature, double radius
     velocity[1] = v * sin(theta) * sin(phi);
     velocity[2] = v * cos(theta);
 
-    // rotate around y axis at 50 degrees
+    // rotate around y axis at 50 Deg
     //z nach vorne (von mir weg)
     //y nach oben
     //x nach links
@@ -148,12 +148,12 @@ double Molecule::get_temperature(double vbDrift[3])
     return (pow(velocity[0] - vbDrift[0], 2) + pow(velocity[1] - vbDrift[1], 2) + pow(velocity[2] - vbDrift[2], 2)) * mass / (3 * kB);
 }
 
-double Molecule::get_uniform_distibuted_variable()
+double Molecule::get_uniform_distributed_variable()
 {
     return uniformDistribution(generator);
 }
 
-void Molecule::set_velocity_from_hard_shpere_collision_with_buffer_gas(double vb[3], double bufferGasMass)
+void Molecule::set_velocity_from_hard_sphere_collision_with_buffer_gas(double vb[3], double bufferGasMass)
 {
     double vcm[3]; // velocity of center of mass
     double g[3];
